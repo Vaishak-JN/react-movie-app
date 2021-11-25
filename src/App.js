@@ -57,8 +57,8 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Movies</h1>
       <section className="movie-list">
-        <h1>Movies</h1>
         {movies.map(({poster,name,summary,rating})=> (<Movie name={name} poster={poster} summary={summary} rating={rating}/>))} 
       </section>
     </div>
