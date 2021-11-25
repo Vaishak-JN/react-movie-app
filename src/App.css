@@ -17,7 +17,7 @@ body {
   box-shadow: 2px 2px 10px 2px grey;
   display: block;
   margin: auto;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 .movie-container {
   /* margin: 10px; */
@@ -26,6 +26,10 @@ body {
   /* background-color: gray; */
   /* border: 1px solid red; */
   align-self: baseline;
+}
+.main-heading {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 .movie-specs {
   display: flex;
