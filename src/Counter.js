@@ -1,5 +1,6 @@
 // **********************
 import { useState } from "react";
+import Button from '@mui/material/Button';
 // like counter
 export function Counter() {
     // const like=0;
@@ -11,8 +12,11 @@ export function Counter() {
 
     return (
         <div className="btn-container">
-            <button className="btn  btn-lg btn-outline-none" onClick={() => setLike(like + 1)}><i class="bi bi-hand-thumbs-up-fill text-warning"></i> {like}</button>
-            <button className="btn btn-lg btn-outline-none" onClick={() => setDisLike(disLike + 1)}><i class="bi bi-hand-thumbs-down-fill text-warning"></i> {disLike}</button>
+
+            <Button variant="text" onClick={() => setLike(like + 1)}>👍 {like}</Button>
+            <Button variant="text" onClick={() => setDisLike(disLike + 1)}>👎 {disLike}</Button>
+
         </div>
     )
 }
+

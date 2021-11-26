@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from "react";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 // import { useState } from "react";
 // import { useState } from "react";
 // import { useState } from "react";
@@ -133,15 +135,17 @@ function App() {
       <MovieList movies={movies}></MovieList>
 
       <h2>Add Movies here</h2>
-      <input onChange={(event) => { setName(event.target.value) }} placeholder="Enter movie name" value={name} className="d-block my-2 form-control" />
-
-      <input onChange={(event) => { setPoster(event.target.value) }} placeholder="Enter poster url" value={poster} className="d-block my-2 form-control" />
-
-      <input onChange={(event) => { setSummary(event.target.value) }} placeholder="Enter movie summary" value={summary} className="d-block my-2 form-control" />
-
-      <input onChange={(event) => { setRating(event.target.value) }} placeholder="Enter movie rating" value={rating} className="d-block my-2 form-control" />
-
-      <button onClick={addMovie} className="btn btn-outline-primary btn-fluid">Add Movie</button>
+      <TextField id="movie-name" label="Enter movie name" variant="standard" onChange={(event) => { setName(event.target.value) }} value={name} />
+      <br />
+      <TextField id="movie-poster" label="Enter poster url" variant="standard" onChange={(event) => { setPoster(event.target.value) }} value={poster} className="d-block my-2 form-control" />
+      <br />
+      <TextField id="movie-summary" label="Enter movie summary" variant="standard" onChange={(event) => { setSummary(event.target.value) }} value={summary} className="d-block my-2 form-control" />
+      <br />
+      <TextField id="movie-rating" label="Enter movie rating" variant="standard" onChange={(event) => { setRating(event.target.value) }} value={rating} className="d-block my-2 form-control" />
+      <br />
+      <br />
+      {/* <button onClick={addMovie} >Add Movie</button> */}
+      <Button variant="contained" onClick={addMovie}>Add Movie</Button>
 
 
       {/* <AddColor /> */}
