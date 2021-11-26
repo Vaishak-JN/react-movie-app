@@ -11,8 +11,8 @@ export function Counter() {
 
     return (
         <div className="btn-container">
-            <button onClick={() => setLike(like + 1)}>👍 {like}</button>
-            <button onClick={() => setDisLike(disLike + 1)}>👎 {disLike}</button>
+            <button className="btn  btn-lg btn-outline-none" onClick={() => setLike(like + 1)}><i class="bi bi-hand-thumbs-up-fill text-warning"></i> {like}</button>
+            <button className="btn btn-lg btn-outline-none" onClick={() => setDisLike(disLike + 1)}><i class="bi bi-hand-thumbs-down-fill text-warning"></i> {disLike}</button>
         </div>
     )
 }
