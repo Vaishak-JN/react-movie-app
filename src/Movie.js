@@ -1,31 +1,50 @@
 import { useState } from "react";
 import { Counter } from "./Counter.js";
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import InfoIcon from '@mui/icons-material/Info';
+import { useHistory } from "react-router-dom";
 
-export function Movie({ poster, name, summary, rating }) {
+export function Movie({ poster, name, summary, rating, index, deleteButton, editButton }) {
     const [show, setShow] = useState(true)
     // const styles = { display: show ? "block" : "none" };
 
+    // useHistory 
+    const history = useHistory()
+
 
     return (
-        <div className="movie-container">
+        <Card className="movie-container">
             <img className="poster" src={poster} alt={name} />
-            <div className="movie-specs">
-                <h2 className="movie-name">{name}</h2>
-                <h5 className="rating">⭐ {rating}</h5>
-            </div>
+            <CardContent>
+                <div className="movie-specs">
+                    <h2 className="movie-name">{name}
+                        <IconButton color="success" onClick={() => setShow(!show)} aria-label="ExpandLess">
+                            {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                        </IconButton>
 
-            {/* conditional styling */}
-            {/* <button className="btn btn-sm btn-outline-dark" onClick={() => setShow(!show)} style={{ margin: "8px 0" }}>{show ? "Hide Description" : "Show Description"}</button> */}
-            <Button color="success" variant="outlined" onClick={() => setShow(!show)} style={{ margin: "8px 0" }}>{show ? "Hide Description" : "Show Description"}</Button>
-            {/* <p className="summary" style={styles}>{summary}</p> */}
-
-            {/* conditional rendering */}
-
-            {show ? <p className="summary text-muted">{summary}</p> : ""}
+                        <IconButton color="primary" onClick={() => history.push(`/movies/${index}`)} aria-label="ExpandLess">
+                            <InfoIcon />
+                        </IconButton>
+                    </h2>
+                    <h5 className="rating">⭐ {rating}</h5>
+                </div>
 
 
-            <Counter />
-        </div >
+                {show ? <p className="summary text-muted">{summary}</p> : ""}
+
+
+                <CardActions>
+                    <Counter />
+                    {editButton}
+                    {deleteButton}
+                </CardActions>
+
+            </CardContent>
+        </Card >
     );
 }

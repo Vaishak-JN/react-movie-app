@@ -13,22 +13,24 @@ body {
 }
 .poster {
   height: 500px;
-  width: 350px;
+  width: 360px;
   object-fit: cover;
-  box-shadow: 2px 2px 10px 2px grey;
+  /* box-shadow: 2px 2px 10px 2px grey; */
   display: block;
   margin: auto;
-  margin-bottom: 5px;
-  border-radius: 8px;
+  /* margin-bottom: 5px; */
+  /* border-radius: 8px; */
 }
 
 .movie-container {
-  /* margin: 10px; */
+  margin: 10px 0;
   /* gap: 10px; */
-  width: 350px;
+  width: 360px;
+  height: 900px;
   /* background-color: gray; */
   /* border: 1px solid red; */
   align-self: baseline;
+  /* align-self: center; */
 }
 .main-heading {
   text-align: center;
@@ -40,7 +42,7 @@ body {
   justify-content: space-between;
 }
 .movie-name {
-  margin: 8px 0;
+  /* margin: 8px 0; */
   font-size: 25px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
@@ -62,7 +64,26 @@ button {
   padding: 5px;
 }
 .btn-container {
+  /* margin: 5px 0; */
   /* border: 1px solid red; */
   display: flex;
   gap: 10px;
+}
+
+.movie-detail-container {
+  padding: 1rem;
+  max-width: 50rem;
+}
+.nav {
+  /* border: 1px solid red; */
+
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 40px;
+}
+.nav a {
+  color: brown;
+  text-decoration: none;
 }
