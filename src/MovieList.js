@@ -14,12 +14,9 @@ export function MovieList({ movies, setMovies }) {
         // using filter
         const removeMovieIndex = index;
         const remainingMovies = movies.filter((mv, idx) => idx !== removeMovieIndex)
-
         console.log(remainingMovies, movies, removeMovieIndex)
         setMovies(remainingMovies)
     }
-
-
     return (<section className="movie-list">
         {/* <h1 className="main-heading">Movies</h1> */}
         {movies.map(({ poster, name, summary, rating }, index) =>
@@ -34,7 +31,7 @@ export function MovieList({ movies, setMovies }) {
                     <DeleteIcon color="error" />
                 </IconButton>}
 
-                editButton={<IconButton aria-label="delete" color="error" onClick={() => history.push("/movies/edit/" + index)} >
+                editButton={<IconButton style={{ marginLeft: "auto" }} aria-label="delete" color="error" onClick={() => history.push("/movies/edit/" + index)} >
                     <ModeEditIcon color="primary" />
                 </IconButton>}
 

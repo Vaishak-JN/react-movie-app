@@ -1,8 +1,10 @@
 body {
-  margin: 10px;
+  /* margin: 10px; */
+  /* padding: 10px; */
   font-family: "Poppins", sans-serif;
 }
 .movie-list {
+  margin-top: 24px;
   display: flex;
   gap: 15px;
   overflow: hidden;
@@ -26,7 +28,7 @@ body {
   margin: 10px 0;
   /* gap: 10px; */
   width: 360px;
-  height: 900px;
+  height: min-content;
   /* background-color: gray; */
   /* border: 1px solid red; */
   align-self: baseline;
@@ -74,16 +76,19 @@ button {
   padding: 1rem;
   max-width: 50rem;
 }
-.nav {
-  /* border: 1px solid red; */
+.add-movie-form {
+  padding: 24px;
+}
+/* .nav {
+
 
   list-style-type: none;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   gap: 40px;
-}
-.nav a {
+} */
+/* .nav a {
   color: brown;
   text-decoration: none;
-}
+} */

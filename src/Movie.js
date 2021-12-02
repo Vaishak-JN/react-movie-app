@@ -11,11 +11,10 @@ import { useHistory } from "react-router-dom";
 
 export function Movie({ poster, name, summary, rating, index, deleteButton, editButton }) {
     const [show, setShow] = useState(true)
-    // const styles = { display: show ? "block" : "none" };
+    // const styles = { display: show ? "block" : "none" }; 
 
     // useHistory 
     const history = useHistory()
-
 
     return (
         <Card className="movie-container">
@@ -23,6 +22,7 @@ export function Movie({ poster, name, summary, rating, index, deleteButton, edit
             <CardContent>
                 <div className="movie-specs">
                     <h2 className="movie-name">{name}
+
                         <IconButton color="success" onClick={() => setShow(!show)} aria-label="ExpandLess">
                             {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                         </IconButton>
@@ -34,16 +34,13 @@ export function Movie({ poster, name, summary, rating, index, deleteButton, edit
                     <h5 className="rating">⭐ {rating}</h5>
                 </div>
 
-
                 {show ? <p className="summary text-muted">{summary}</p> : ""}
-
 
                 <CardActions>
                     <Counter />
                     {editButton}
                     {deleteButton}
                 </CardActions>
-
             </CardContent>
         </Card >
     );

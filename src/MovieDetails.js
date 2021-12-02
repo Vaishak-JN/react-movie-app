@@ -3,9 +3,7 @@ import Button from '@mui/material/Button';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useHistory } from "react-router-dom";
 
-
 export function MovieDetails({ movies }) {
-
     const { movieId } = useParams();
     // console.log(movies)
     const movie = movies[movieId];
@@ -26,5 +24,4 @@ export function MovieDetails({ movies }) {
             <Button variant="contained" startIcon={<KeyboardBackspaceIcon />} onClick={() => history.goBack()} >Back</Button>
         </div>
     );
-
 }
