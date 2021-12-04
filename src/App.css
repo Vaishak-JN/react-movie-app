@@ -15,7 +15,7 @@ body {
 }
 .poster {
   height: 500px;
-  width: 360px;
+  width: 100%;
   object-fit: cover;
   /* box-shadow: 2px 2px 10px 2px grey; */
   display: block;

@@ -2,11 +2,27 @@ import { useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-export function MovieDetails({ movies }) {
-    const { movieId } = useParams();
+// export function MovieDetails({ movies }) {
+
+export function MovieDetails() {
+
+    const [movie, setMovie] = useState({})
+    const { id } = useParams();
+
+    useEffect(() => {
+        fetch(`https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies/${id}`, {
+            method: "GET"
+        })
+            .then(data => data.json())
+            .then((mv) => setMovie(mv))
+    }, [])
+
+
+
     // console.log(movies)
-    const movie = movies[movieId];
+    // const movie = movies[movieId];
     console.log(movie);
     const history = useHistory();
     return (

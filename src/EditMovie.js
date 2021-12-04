@@ -1,18 +1,62 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 
-export function EditMovie({ movies, setMovies }) {
+// Higher order components
+
+// export function EditMovie({ movies, setMovies }) {
+export function EditMovie() {
 
     const { id } = useParams()
-    const movie = movies[id];
+    // const movie = movies[id];
+    const [movie, setMovie] = useState(null)
+
+    // const editMovie = (id) => {
+    // make a copy of movies and replace edited movie
+
+    useEffect(() => {
+        // const updatedMovie = { name, poster, rating, summary, trailer };
+        fetch(`https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies/${id}`, {
+            method: "GET",
+
+        })
+            .then((data) => data.json())
+            .then((mv) => setMovie(mv))
+
+    }, [])
+
+    // };
+
+    // const editMovie = () => {
+    //     // make a copy of movies and replace edited movie
+
+    //     const updatedMovie = { name, poster, rating, summary, trailer };
+
+    //     const copyMovies = [...movies]
+    //     copyMovies[id] = updatedMovie;
+    //     // copyMovies.splice(id,1,updatedMovie)
+
+    //     setMovies(copyMovies)
+    //     clearInputs();
+    //     newPath();
+
+
+    // };
+
+
+
+    // untill movie data is available, do not set the form
+    return movie ? <UpdateMovie movie={movie} /> : "";
+}
+
+function UpdateMovie({ movie }) {
 
     const [name, setName] = useState(movie.name);
     const [poster, setPoster] = useState(movie.poster);
-    const [summary, setSummary] = useState(movie.name);
+    const [summary, setSummary] = useState(movie.summary);
     const [rating, setRating] = useState(movie.rating);
     const [trailer, setTrailer] = useState(movie.trailer)
 
@@ -30,20 +74,19 @@ export function EditMovie({ movies, setMovies }) {
         setRating("");
     };
 
+    // 1.method - PUT and pass the id
+    // 2. body - data & JSON
+    // 3. headers - JSON data
+
     const editMovie = () => {
-        // make a copy of movies and replace edited movie
 
         const updatedMovie = { name, poster, rating, summary, trailer };
-
-        const copyMovies = [...movies]
-        copyMovies[id] = updatedMovie;
-        // copyMovies.splice(id,1,updatedMovie)
-
-        setMovies(copyMovies)
-        clearInputs();
-        newPath();
-
-
+        fetch(`https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies/${movie.id}`, {
+            method: "PUT",
+            body: JSON.stringify(updatedMovie),
+            headers: { "Content-type": "application/json" }
+        })
+            .then(() => history.push("/movies"))
     };
 
     return (
@@ -59,7 +102,7 @@ export function EditMovie({ movies, setMovies }) {
 
             <TextField fullWidth id="movie-trailer" label="Movie trailer" variant="outlined" onChange={(event) => { setTrailer(event.target.value); }} value={trailer} margin="dense" />
 
-            <Button fullWidth color="success" margin="normal" variant="contained" onClick={editMovie}>Save</Button>
+            <Button fullWidth color="success" margin="normal" variant="contained" onClick={(editMovie)} >Save</Button>
         </div>
-    );
+    )
 }

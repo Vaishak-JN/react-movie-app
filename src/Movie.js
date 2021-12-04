@@ -9,7 +9,7 @@ import CardContent from '@mui/material/CardContent';
 import InfoIcon from '@mui/icons-material/Info';
 import { useHistory } from "react-router-dom";
 
-export function Movie({ poster, name, summary, rating, index, deleteButton, editButton }) {
+export function Movie({ poster, name, summary, rating, id, deleteButton, editButton }) {
     const [show, setShow] = useState(true)
     // const styles = { display: show ? "block" : "none" }; 
 
@@ -27,7 +27,8 @@ export function Movie({ poster, name, summary, rating, index, deleteButton, edit
                             {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                         </IconButton>
 
-                        <IconButton color="primary" onClick={() => history.push(`/movies/${index}`)} aria-label="ExpandLess">
+                        {/* <IconButton color="primary" onClick={() => history.push(`/movies/${index}`)} aria-label="ExpandLess"> */}
+                        <IconButton color="primary" onClick={() => history.push(`/movies/${id}`)} aria-label="ExpandLess">
                             <InfoIcon />
                         </IconButton>
                     </h2>

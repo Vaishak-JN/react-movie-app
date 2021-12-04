@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieList } from './MovieList';
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import { AddColor } from './AddColor';
@@ -15,7 +15,6 @@ import Button from '@mui/material/Button';
 import { useHistory } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import IconButton from '@mui/material/IconButton';
 // import Box from '@mui/material/Box';
 // import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
@@ -32,7 +31,7 @@ function App() {
 
   const history = useHistory()
 
-  const [movies, setMovies] = useState(INITIAL_MOVIES);
+  const [movies, setMovies] = useState([]);
 
   // theming
 
@@ -44,6 +43,28 @@ function App() {
       mode: mode
     },
   });
+  // useEffect
+
+  useEffect(() => {
+    fetch("https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies", {
+      method: "GET"
+    })
+      .then(data => data.json())
+      .then((mvs) => setMovies(mvs))
+  }, [])
+  // only once
+
+  // using async
+  // useEffect(() => {
+  //   async function getMovies(){
+  //     const data=await fetch("https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies", {
+  //       method: "GET"
+  //     })
+  //     const mvs=await data.json();
+  //     setMovies(mvs)
+  //   }
+  //   getMovies();
+  // }, [])
 
   const paperStyles = { borderRadius: 0, minHeight: "100vh" };
 
@@ -86,7 +107,7 @@ function App() {
                 Color-Game
               </Button>
 
-              <Button onClick={() => setMode(mode === "dark" ? "light" : "dark")} size="large" color="inherit" aria-label="home" startIcon={mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}>
+              <Button onClick={() => setMode(mode === "dark" ? "light" : "dark")} style={{ marginLeft: "auto" }} size="large" color="inherit" aria-label="home" startIcon={mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}>
                 {mode === "dark" ? "light" : "dark"} mode
               </Button>
 
@@ -111,20 +132,24 @@ function App() {
 
             {/* If data need to be shared , put it in common parent component */}
             <Route path="/movies/add">
-              <AddMovie movies={movies} setMovies={setMovies} />
+              {/* <AddMovie movies={movies} setMovies={setMovies} /> */}
+              <AddMovie />
             </Route>
 
             <Route path="/movies/edit/:id">
-              <EditMovie movies={movies} setMovies={setMovies} />
+              {/* <EditMovie movies={movies} setMovies={setMovies} /> */}
+              <EditMovie />
             </Route>
 
             {/* this will match anything, so be carefull with placement/order */}
-            <Route path="/movies/:movieId">
-              <MovieDetails movies={movies} />
+            <Route path="/movies/:id">
+              {/* <MovieDetails movies={movies} /> */}
+              <MovieDetails />
             </Route>
 
             <Route path="/movies">
-              <MovieList movies={movies} setMovies={setMovies} />
+              {/* <MovieList movies={movies} setMovies={setMovies} /> */}
+              <MovieList />
             </Route>
 
             <Route path="/color-game">
@@ -144,3 +169,6 @@ function App() {
 
 export default App;
 
+// fetch("https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies")
+//   .then(data => data.json())
+//   .then(mvs => console.log(mvs))
