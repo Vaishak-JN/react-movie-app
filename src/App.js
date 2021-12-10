@@ -19,6 +19,7 @@ import Paper from '@mui/material/Paper';
 // import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { BasicForm } from './BasicForm';
 
 
 
@@ -107,6 +108,10 @@ function App() {
                 Color-Game
               </Button>
 
+              <Button onClick={() => history.push("/basic-form")} size="large" color="inherit" aria-label="home">
+                Basic Form
+              </Button>
+
               <Button onClick={() => setMode(mode === "dark" ? "light" : "dark")} style={{ marginLeft: "auto" }} size="large" color="inherit" aria-label="home" startIcon={mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}>
                 {mode === "dark" ? "light" : "dark"} mode
               </Button>
@@ -156,6 +161,10 @@ function App() {
               <AddColor />
             </Route>
 
+            <Route path="/basic-form">
+              <BasicForm />
+            </Route>
+
             <Route path="**">
               <NotFound />
             </Route>
@@ -169,6 +178,4 @@ function App() {
 
 export default App;
 
-// fetch("https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies")
-//   .then(data => data.json())
-//   .then(mvs => console.log(mvs))
+
