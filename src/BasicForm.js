@@ -70,7 +70,7 @@ const formValidation = (values) => {
     }
     console.log(errors)
     return errors
-    // errors object sgould be empty for onSubmit to nwork
+    // errors object should be empty for onSubmit to nwork
 }
 
 const formValidationSchema = yup.object({
@@ -83,6 +83,7 @@ export function BasicForm() {
     // using destructuring
     const { handleSubmit, values, handleBlur, handleChange, errors, touched } = useFormik({
         initialValues: { email: "", password: "" },
+
         // validate: formValidation,
         // onSubmit is called only if validate passes
 

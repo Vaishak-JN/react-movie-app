@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // export function MovieDetails({ movies }) {
-
 export function MovieDetails() {
 
     const [movie, setMovie] = useState({})
