@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { MovieList } from './MovieList';
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import { AddColor } from './AddColor';
-import { INITIAL_MOVIES } from './INITIAL_MOVIES';
 import { MovieDetails } from './MovieDetails';
 import { Welcome } from './Welcome';
 import { NotFound } from './NotFound';
@@ -15,11 +14,10 @@ import Button from '@mui/material/Button';
 import { useHistory } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-// import Box from '@mui/material/Box';
-// import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { BasicForm } from './BasicForm';
+import { API } from "./global"
 
 
 
@@ -44,10 +42,12 @@ function App() {
       mode: mode
     },
   });
+
+
   // useEffect
 
   useEffect(() => {
-    fetch("https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies", {
+    fetch(`${API}/movies`, {
       method: "GET"
     })
       .then(data => data.json())

@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useFormik } from "formik"
 import * as yup from 'yup';
 import { formValidationSchema } from "./AddMovie";
+import { API } from "./global"
 
 
 // Higher order components
@@ -127,7 +128,7 @@ export function EditMovie() {
 
     useEffect(() => {
         // const updatedMovie = { name, poster, rating, summary, trailer };
-        fetch(`https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies/${id}`, {
+        fetch(`${API}/movies/${id}`, {
             method: "GET",
 
         })
@@ -169,7 +170,7 @@ function UpdateMovie({ movie }) {
     const editMovie = (updatedMovie) => {
 
         // const updatedMovie = { name, poster, rating, summary, trailer };
-        fetch(`https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies/${movie.id}`, {
+        fetch(`${API}/movies/${movie.id}`, {
             method: "PUT",
             body: JSON.stringify(updatedMovie),
             headers: { "Content-type": "application/json" }

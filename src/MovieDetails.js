@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { API } from "./global"
 
 // export function MovieDetails({ movies }) {
 export function MovieDetails() {
@@ -11,7 +12,7 @@ export function MovieDetails() {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies/${id}`, {
+        fetch(`${API}/movies/${id}`, {
             method: "GET"
         })
             .then(data => data.json())

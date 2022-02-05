@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useHistory } from "react-router-dom";
+import { API } from "./global"
 
 
 // export function AddMovie({ movies, setMovies }) {
@@ -107,7 +108,7 @@ export function AddMovie() {
         // const newMovie = { name, poster, rating, summary, trailer };
 
 
-        fetch(`https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies`, {
+        fetch(`${API}/movies`, {
             method: "POST",
             body: JSON.stringify(newMovie),
             headers: { "Content-type": "application/json" }

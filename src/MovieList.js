@@ -4,6 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { API } from "./global"
 
 // import { MovieList } from "./MovieList.js"
 
@@ -13,7 +14,7 @@ export function MovieList() {
     const [movies, setMovies] = useState([])
 
     const getMovies = () => {
-        fetch(`https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies`, {
+        fetch(`${API}/movies`, {
             method: "GET"
         })
             .then(data => data.json())
@@ -36,7 +37,7 @@ export function MovieList() {
 
     // after delete->refresh to see change
     const removeMovie = (id) => {
-        fetch(`https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies/${id}`, {
+        fetch(`${API}/movies/${id}`, {
             method: "Delete"
         })
             .then(() => getMovies())
