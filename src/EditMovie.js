@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useFormik } from "formik"
-import * as yup from 'yup';
+// import * as yup from 'yup';
 import { formValidationSchema } from "./AddMovie";
 import { API } from "./global"
 

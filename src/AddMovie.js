@@ -110,7 +110,7 @@ export function AddMovie() {
 
         fetch(`${API}/movies`, {
             method: "POST",
-            body: JSON.stringify(newMovie),
+            body: JSON.stringify([newMovie]),
             headers: { "Content-type": "application/json" }
         })
             .then(() => history.push("/movies"))
