@@ -45,7 +45,7 @@ export function MovieList() {
 
     return (<section className="movie-list">
         {/* <h1 className="main-heading">Movies</h1> */}
-        {movies.map(({ poster, name, summary, rating, id, _id }, index) =>
+        {movies.map(({ poster, name, summary, rating, id }, index) =>
             <Movie
                 name={name}
                 poster={poster}
@@ -53,11 +53,11 @@ export function MovieList() {
                 rating={rating}
                 id={id}
 
-                deleteButton={<IconButton aria-label="delete" color="error" onClick={() => removeMovie(_id)} >
+                deleteButton={<IconButton aria-label="delete" color="error" onClick={() => removeMovie(id)} >
                     <DeleteIcon color="error" />
                 </IconButton>}
 
-                editButton={<IconButton style={{ marginLeft: "auto" }} aria-label="delete" color="error" onClick={() => history.push("/movies/edit/" + _id)} >
+                editButton={<IconButton style={{ marginLeft: "auto" }} aria-label="delete" color="error" onClick={() => history.push("/movies/edit/" + id)} >
                     <ModeEditIcon color="primary" />
                 </IconButton>}
 
