@@ -57,7 +57,7 @@ export function MovieList() {
                     <DeleteIcon color="error" />
                 </IconButton>}
 
-                editButton={<IconButton style={{ marginLeft: "auto" }} aria-label="delete" color="error" onClick={() => history.push("/movies/edit/" + id)} >
+                editButton={<IconButton style={{ marginLeft: "auto" }} aria-label="delete" color="error" onClick={() => history.push(`/movies/edit/${id}`)} >
                     <ModeEditIcon color="primary" />
                 </IconButton>}
 
