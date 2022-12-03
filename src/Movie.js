@@ -12,7 +12,6 @@ import { useHistory } from "react-router-dom";
 export function Movie({ poster, name, summary, rating, id, deleteButton, editButton }) {
     const [show, setShow] = useState(true)
     // const styles = { display: show ? "block" : "none" }; 
-
     // useHistory 
     const history = useHistory()
 

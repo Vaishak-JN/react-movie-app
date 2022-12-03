@@ -51,13 +51,13 @@ export function MovieList() {
                 poster={poster}
                 summary={summary}
                 rating={rating}
-                id={_id}
+                id={id}
 
-                deleteButton={<IconButton aria-label="delete" color="error" onClick={() => removeMovie(_id)} >
+                deleteButton={<IconButton aria-label="delete" color="error" onClick={() => removeMovie(id)} >
                     <DeleteIcon color="error" />
                 </IconButton>}
 
-                editButton={<IconButton style={{ marginLeft: "auto" }} aria-label="delete" color="error" onClick={() => history.push(`/movies/edit/${_id}`)} >
+                editButton={<IconButton style={{ marginLeft: "auto" }} aria-label="delete" color="error" onClick={() => history.push(`/movies/edit/${id}`)} >
                     <ModeEditIcon color="primary" />
                 </IconButton>}
 

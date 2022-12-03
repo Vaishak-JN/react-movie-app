@@ -135,7 +135,7 @@ export function EditMovie() {
             .then((data) => data.json())
             .then((mv) => setMovie(mv))
 
-    }, [])
+    }, [id])
 
 
     // untill movie data is available, do not set the form

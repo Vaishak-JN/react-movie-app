@@ -17,7 +17,7 @@ export function MovieDetails() {
         })
             .then(data => data.json())
             .then((mv) => setMovie(mv))
-    }, [])
+    }, [id])
 
 
 
