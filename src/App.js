@@ -104,13 +104,13 @@ function App() {
               <Button onClick={() => history.push("/movies/add")} size="large" color="inherit" aria-label="home">
                 Add Movies
               </Button>
-              <Button onClick={() => history.push("/color-game")} size="large" color="inherit" aria-label="home">
+              {/* <Button onClick={() => history.push("/color-game")} size="large" color="inherit" aria-label="home">
                 Color-Game
-              </Button>
+              </Button> */}
 
-              <Button onClick={() => history.push("/basic-form")} size="large" color="inherit" aria-label="home">
+              {/* <Button onClick={() => history.push("/basic-form")} size="large" color="inherit" aria-label="home">
                 Basic Form
-              </Button>
+              </Button> */}
 
               <Button onClick={() => setMode(mode === "dark" ? "light" : "dark")} style={{ marginLeft: "auto" }} size="large" color="inherit" aria-label="home" startIcon={mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}>
                 {mode === "dark" ? "light" : "dark"} mode
@@ -157,13 +157,13 @@ function App() {
               <MovieList />
             </Route>
 
-            <Route path="/color-game">
+            {/* <Route path="/color-game">
               <AddColor />
-            </Route>
+            </Route> */}
 
-            <Route path="/basic-form">
+            {/* <Route path="/basic-form">
               <BasicForm />
-            </Route>
+            </Route> */}
 
             <Route path="**">
               <NotFound />
