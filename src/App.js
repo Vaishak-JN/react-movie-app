@@ -2,7 +2,7 @@ import './App.css';
 import { useState, useEffect } from "react";
 import { MovieList } from './MovieList';
 import { Switch, Route, Link, Redirect } from "react-router-dom";
-import { AddColor } from './AddColor';
+
 import { MovieDetails } from './MovieDetails';
 import { Welcome } from './Welcome';
 import { NotFound } from './NotFound';
@@ -16,17 +16,14 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { BasicForm } from './BasicForm';
+
 import { API } from "./global"
 
 
 
 function App() {
 
-  // const [name, setName] = useState("");
-  // const [poster, setPoster] = useState("");
-  // const [summary, setSummary] = useState("");
-  // const [rating, setRating] = useState("");
+
 
   const history = useHistory()
 
@@ -53,19 +50,7 @@ function App() {
       .then(data => data.json())
       .then((mvs) => setMovies(mvs))
   }, [])
-  // only once
 
-  // using async
-  // useEffect(() => {
-  //   async function getMovies(){
-  //     const data=await fetch("https://61a8d90a33e9df0017ea3ba9.mockapi.io/movies", {
-  //       method: "GET"
-  //     })
-  //     const mvs=await data.json();
-  //     setMovies(mvs)
-  //   }
-  //   getMovies();
-  // }, [])
 
   const paperStyles = { borderRadius: 0, minHeight: "100vh" };
 

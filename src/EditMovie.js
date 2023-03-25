@@ -170,7 +170,7 @@ function UpdateMovie({ movie }) {
     const editMovie = (updatedMovie) => {
 
         // const updatedMovie = { name, poster, rating, summary, trailer };
-        fetch(`${API}/movies/${movie.id}`, {
+        fetch(`${API}/movies/${movie._id}`, {
             method: "PUT",
             body: JSON.stringify(updatedMovie),
             headers: { "Content-type": "application/json" }
