@@ -25,15 +25,6 @@ export function MovieList() {
 
     const history = useHistory()
 
-    // const removeMovie = (index) => {
-    //     console.log(index)
-    //     // create a copy of movie list and remove element from it
-    //     // using filter
-    //     const removeMovieIndex = index;
-    //     const remainingMovies = movies.filter((mv, idx) => idx !== removeMovieIndex)
-    //     console.log(remainingMovies, movies, removeMovieIndex)
-    //     setMovies(remainingMovies)
-    // }
 
     // after delete->refresh to see change
     const removeMovie = (id) => {

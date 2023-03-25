@@ -8,10 +8,7 @@ import Badge from '@mui/material/Badge';
 import MailIcon from '@mui/icons-material/Mail';
 // like counter
 export function Counter() {
-    // const like=0;
-    // state - current state- current data in web app
-    // const [state,setstate] = useState(initial value)
-    // setstate updates the state
+
     const [like, setLike] = useState(0)
     const [disLike, setDisLike] = useState(0)
     const incrementLike = () => setLike(like + 1)
