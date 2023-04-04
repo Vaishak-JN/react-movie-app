@@ -37,7 +37,7 @@ export function MovieDetails() {
             </div>
             <p className="summary text-muted">{movie.summary}</p>
 
-            <Button variant="contained" startIcon={<KeyboardBackspaceIcon />} onClick={() => navigate(-1)} >Back</Button>
+            <Button variant="contained" startIcon={<KeyboardBackspaceIcon />} onClick={() => navigate("/movies")} >Back</Button>
         </div>
     );
 }
