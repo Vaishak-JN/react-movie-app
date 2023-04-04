@@ -2,7 +2,7 @@ import { Movie } from './Movie';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API } from "./global"
 
@@ -23,7 +23,7 @@ export function MovieList() {
 
     useEffect(getMovies, []);
 
-    const history = useHistory()
+    const navigate = useNavigate()
 
 
     // after delete->refresh to see change
@@ -48,7 +48,7 @@ export function MovieList() {
                     <DeleteIcon color="error" />
                 </IconButton>}
 
-                editButton={<IconButton style={{ marginLeft: "auto" }} aria-label="delete" color="error" onClick={() => history.push(`/movies/edit/${_id}`)} >
+                editButton={<IconButton style={{ marginLeft: "auto" }} aria-label="delete" color="error" onClick={() => navigate(`/movies/edit/${_id}`)} >
                     <ModeEditIcon color="primary" />
                 </IconButton>}
 

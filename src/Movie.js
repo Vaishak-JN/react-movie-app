@@ -7,13 +7,13 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import InfoIcon from '@mui/icons-material/Info';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Movie({ poster, name, summary, rating, id, deleteButton, editButton }) {
     const [show, setShow] = useState(true)
     // const styles = { display: show ? "block" : "none" }; 
     // useHistory 
-    const history = useHistory()
+    const navigate = useNavigate()
 
     return (
         <Card className="movie-container">
@@ -27,7 +27,7 @@ export function Movie({ poster, name, summary, rating, id, deleteButton, editBut
                         </IconButton>
 
                         {/* <IconButton color="primary" onClick={() => history.push(`/movies/${index}`)} aria-label="ExpandLess"> */}
-                        <IconButton color="primary" onClick={() => history.push(`/movies/${id}`)} aria-label="ExpandLess">
+                        <IconButton color="primary" onClick={() => navigate(`/movies/${id}`)} aria-label="ExpandLess">
                             <InfoIcon />
                         </IconButton>
                     </h2>

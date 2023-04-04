@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useFormik } from "formik"
 
@@ -38,7 +38,7 @@ export function EditMovie() {
 
 function UpdateMovie({ movie }) {
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const { handleSubmit, values, handleBlur, handleChange, errors, touched } = useFormik({
         initialValues: {
@@ -69,7 +69,7 @@ function UpdateMovie({ movie }) {
             body: JSON.stringify(updatedMovie),
             headers: { "Content-type": "application/json" }
         })
-            .then(() => history.push("/movies"))
+            .then(() => navigate("/movies"))
     };
 
     return (

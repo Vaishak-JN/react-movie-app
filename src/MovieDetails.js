@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API } from "./global"
 
@@ -24,7 +24,7 @@ export function MovieDetails() {
     // console.log(movies)
     // const movie = movies[movieId];
     console.log(movie);
-    const history = useHistory();
+    const navigate = useNavigate();
     return (
         <div className="movie-detail-container">
 
@@ -37,7 +37,7 @@ export function MovieDetails() {
             </div>
             <p className="summary text-muted">{movie.summary}</p>
 
-            <Button variant="contained" startIcon={<KeyboardBackspaceIcon />} onClick={() => history.goBack()} >Back</Button>
+            <Button variant="contained" startIcon={<KeyboardBackspaceIcon />} onClick={() => navigate(-1)} >Back</Button>
         </div>
     );
 }

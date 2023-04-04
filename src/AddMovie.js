@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { API } from "./global"
 
 
@@ -80,7 +80,7 @@ export const formValidationSchema = yup.object({
 export function AddMovie() {
 
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
 
     const { handleSubmit, values, handleBlur, handleChange, errors, touched } = useFormik({
@@ -113,7 +113,7 @@ export function AddMovie() {
             body: JSON.stringify([newMovie]),
             headers: { "Content-type": "application/json" }
         })
-            .then(() => history.push("/movies"))
+            .then(() => navigate("/movies"))
     };
 
     return (
